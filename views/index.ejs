@@ -1,16 +1,20 @@
-<h2>todo lists</h2>
+<h2>My Todos</h2>
 
 <form action="/" method="POST">
-    <label>Content</label>
+    <label>Todo Content</label>
     <input type="text" name="content" value="content">
     <button type="submit">Create todo</button>
 </form>
 
 
 <% allTodos.forEach(todo => { %>
-    <div></div><b><%= todo.content %></b></div>
+    <h4>Todo: </h4>
+    <%= todo.content %>
     <a href="/todo/<%= todo.id %>/edit">Edit</a>
+    <div>Created at:</div>
     <div><%= todo.date.toString().split('G')[0] %></div>
+    <div>Updated at:</div>
+    <div><%= todo.updatedAt.toString().split('G')[0] %></div>
     <form action="/todo/<%= todo.id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
     </form>

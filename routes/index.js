@@ -37,6 +37,7 @@ router.put('/todo/:id', async (req, res) => {
     let todo
     try {
         todo = await Todo.findById(req.params.id)
+        todo.updatedAt = Date.now()
         todo.content = req.body.content
         await todo.save()
         res.redirect('/')
