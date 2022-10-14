@@ -1,0 +1,6 @@
+<h2>Edit Todo</h2>
+<form action="/todo/<%= todo.id %>?_method=PUT" method="POST">
+    <label>Todo</label>
+    <input type="text" name="content" value="<%= todo.content %>">
+    <button type="submit">Update</button>
+</form>
